@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aylimas Beach & Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #08304d;
+      scroll-behavior: smooth;
+      background: #f0f8ff;
+    }
+
+    /* Navigation & Logo */
+    nav {
+      background: rgba(255,255,255,0.97);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .logo img {
+      height: 15vh;
+      animation: logoFloat 2s ease-in-out infinite alternate;
+      transition: transform .2s ease, filter .2s ease;
+      border-radius: 50%;
+      width: 20vh;
+
+      
+    }
+    @keyframes logoFloat {
+      to { transform: translateY(-8px); }
+    }
+    .logo img:hover {
+      transform: scale(1.2) translateY(-8px);
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #08304d;
+      font-weight: 500;
+      transition: color .3s ease;
+    }
+    nav a:hover { color: #787777; }
+
+    /* Hero Section */
+    header {
+      position: relative;
+      height: 50vh;
+      background: url('ChatGPT Image 6 juil. 2025, 09_46_41.png') center/cover no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      animation: bgZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes bgZoom {
+      from { background-size: 100%; }
+      to { background-size: 110%; }
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      animation: fadeInDown 2s ease;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      animation: fadeInUp 2s ease;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Reservation Number */
+    .reservation-number {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Floating bubbles */
+    .bubbles {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bubbles span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(255,255,255,0.2);
+      bottom: -100px;
+      animation: bubble 20s linear infinite;
+      left: calc(100% * var(--i) / 30);
+      border-radius: 50%;
+    }
+    @keyframes bubble {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-1000px) scale(0.6);
+        opacity: 0;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section:nth-of-type(odd) { background: #fffaf0; }
+    section:nth-of-type(even) { background: #f0f8ff; }
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #e96e3f;
+      margin-bottom: 2rem;
+    }
+
+    #about p {
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .service-card {
+      position: relative;
+      padding: 3.5rem 1rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #fff, #f9f9f9);
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      transition: all .3s ease;
+      min-width: 280px;
+      max-width: 350px;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .card-icon {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      padding: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .card-icon i {
+      font-size: 1.5rem;
+      color: #e96e3f;
+    }
+    .card h3 {
+      margin: 1rem 0 .5rem;
+      font-size: 1.3rem;
+      color: #08304d;
+    }
+    .card p {
+      font-size: .96rem;
+      color: #444;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+
+    /* Map Styling */
+    .map-container {
+      width: 100%;
+      height: 400px;
+      
+      margin: 2rem 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .rooms img, .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform .3s ease;
+    }
+    .rooms img:hover, .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    button {
+      background: #e96e3f;
+      color: #fff;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background .3s ease;
+    }
+    button:hover { background: #d65a29; }
+    .success-message {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #08304d;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      nav ul { flex-direction: column; gap: 1rem; }
+      header h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SNIPPET from <body> -->
+<nav>
+  <div class="logo">
+    <img src="Capture%20d’écran%202025-07-04%20172247.png" alt="Aylimas Beach & Resort Logo" />
+  </div>
+  <ul>
+  <li><a href="#about">About</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#rooms">Rooms</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="hotel-info.html" target="_blank">Hotel Info & Services</a></li>
+  <li><a href="tarifs.html" target="_blank">Tarifs & Réductions</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+
+  <header>
+    <div class="hero-overlay"></div>
+    <h1>Welcome to Aylimas Beach & Resort</h1>
+    <p>Luxury, Comfort, and an Unforgettable Experience</p>
+    <p class="reservation-number">📞 Reservation: <strong>+216 551091515</strong></p>
+    <div class="bubbles">
+      <!-- 30 animated bubbles -->
+      ${[...Array(30)].map((_, i) => `<span style="--i:${i+1}"></span>`).join('')}
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Nestled along the shimmering coastline of Monastir, Aylimas Beach & Resort marries modern elegance with coastal charm.
+      With 420 beautifully appointed rooms set amidst swaying palms, we offer sweeping sea views, personalized service,
+      and luxurious amenities designed for couples, families, and guests seeking serenity.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="content">
+      <div class="card service-card">
+        <div class="card-icon"><i class="fas fa-utensils"></i></div>
+        <h3>Restaurants & Bars</h3>
+        <p>Gourmet experiences await in our central buffet and two à la carte venues, with poolside, beach, and lobby bars offering curated drinks and signature cocktails.</p>
+      </div>
+      <div class="card service-card">
+        <div class="card-icon"><i class="fas fa-water"></i></div>
+        <h3>Entertainment Areas</h3>
+        <p>Dive into fun: multiple pools including indoor, children’s, and seawater pool, plus thrilling waterslides—perfect for lounging or play.</p>
+      </div>
+      <div class="card service-card">
+        <div class="card-icon"><i class="fas fa-spa"></i></div>
+        <h3>Activities & Spa</h3>
+        <p>From tennis and yoga to karaoke and a kids club, our activities suit every taste. Our spa & thalasso center offers sauna, hammam, and curated massages for ultimate relaxation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rooms">
+    <h2>Rooms & Suites</h2>
+    <div class="rooms">
+      <img src="ChatGPT Image 4 juil. 2025, 17_56_05.png" alt="Sea View Room">
+      <img src="ChatGPT Image 4 juil. 2025, 17_34_47.png" alt="Family Room">
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="ChatGPT Image 4 juil. 2025, 18_00_05.png" alt="Beach">
+      <img src="ChatGPT Image 4 juil. 2025, 17_49_15.png" alt="Pool">
+      <img src="ChatGPT Image 4 juil. 2025, 17_44_17.png" alt="Restaurant">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm" action="https://formspree.io/f/xnnvrerq" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <p class="success-message" id="successMsg">Message sent successfully! We will contact you soon.</p>
+    </form>
+
+    <!-- Google Map -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.836048590139!2d10.698393999999999!3d35.779403499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13020b4e13f69afd%3A0x5f1ebf12aa3cd170!2sH%C3%B4tel%20Aylimas!5e0!3m2!1sfr!2stn!4v1751793681292!5m2!1sfr!2stn"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+  
+
+  <footer>
+    <p>Located in Dkhila Skanes Airport Monastir, Tunisia</p>
+    <p>📞 Reservation: <strong>+216 51091515</strong></p>
+    <p>&copy; 2025 Aylimas Beach & Resort — All rights reserved</p>
+  </footer>
+
+  <script>
+    // Show success message after form submission
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        successMsg.style.display = 'block';
+        form.reset();
+      } else {
+        alert('Error submitting form. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

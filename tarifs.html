@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aylimas Beach Resort – Tarifs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f2f9ff, #ffffff);
+      padding: 2rem;
+      color: #08304d;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      width: 120px;
+      border-radius: 50%;
+      animation: floatLogo 2.5s ease-in-out infinite alternate;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    @keyframes floatLogo {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-top: 0.8rem;
+      color: #e96e3f;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    caption {
+      font-size: 1.6rem;
+      padding: 1rem;
+      font-weight: bold;
+      background: #e96e3f;
+      color: white;
+      text-align: center;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #08304d;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    td {
+      background-color: #f9f9f9;
+      transition: background 0.3s ease;
+    }
+
+    tr:hover td {
+      background-color: #f0f8ff;
+    }
+
+    .types {
+      text-align: left;
+      font-weight: bold;
+      background-color: #eef6ff !important;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 1rem;
+        background: #fff;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      }
+
+      td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: #08304d;
+      }
+    }
+    .map-container {
+      width: 100%;
+      height: 400px;
+      margin-top: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Capture d’écran 2025-07-04 172247.png" alt="Aylimas Logo" />
+    <h1>Aylimas Beach Resort</h1>
+    <p>Arrangement: All Inclusive Soft<br>Implantation: Monastir</p>
+  </header>
+
+  <table>
+    <caption>Tarifs par période (DT par nuit / personne)</caption>
+    <thead>
+      <tr>
+        <th>Types de Chambres</th>
+        <th>01/05 - 31/05 / 01/10 - 31/10</th>
+        <th>01/06 - 30/06</th>
+        <th>01/07 - 13/07</th>
+        <th>14/07 - 31/08</th>
+        <th>01/09 - 15/09</th>
+        <th>16/09 - 30/09</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="types">Chambre Standard</td>
+        <td>150 TND</td><td>162 TND</td><td>220 TND</td><td>239 TND</td><td>175 TND</td><td>162 TND</td>
+      </tr>
+      <tr>
+        <td>Supplément Single</td>
+        <td>30%</td><td>30%</td><td>50%</td><td>50%</td><td>50%</td><td>30%</td>
+      </tr>
+      <tr>
+        <td>Réduction 1er enfant (2-11,99 ans) avec 2 adultes</td>
+        <td>50%</td><td>50%</td><td>50%</td><td>50%</td><td>50%</td><td>50%</td>
+      </tr>
+      <tr>
+        <td>Réduction 3ème Lit</td>
+        <td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td>
+      </tr>
+      <tr>
+        <td class="types">Chambre Monoparentale (+1 enfant)</td>
+        <td>150 TND</td><td>162 TND</td><td>220 TND</td><td>239 TND</td><td>175 TND</td><td>162 TND</td>
+      </tr>
+      <tr>
+        <td>Réduction Enfant (2-11,99 ans)</td>
+        <td>40%</td><td>40%</td><td>40%</td><td>40%</td><td>40%</td><td>40%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="section-title">LOCALISATION</div>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.836048590139!2d10.698393999999999!3d35.779403499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13020b4e13f69afd%3A0x5f1ebf12aa3cd170!2sH%C3%B4tel%20Aylimas!5e0!3m2!1sfr!2stn!4v1751793681292!5m2!1sfr!2stn"
+      width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+  </div>
+
+</body>
+</html>
